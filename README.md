@@ -5,6 +5,8 @@ BE for TODOs app
 
 ### DynamoDB
 - https://edward-huang.com/best-practice/database/2021/04/13/how-to-model-any-relational-data-in-dynamodb-to-maximize-performance/
+- https://www.sensedeep.com/blog/posts/2021/dynamodb-singletable-design.html
+- https://aws.amazon.com/blogs/compute/creating-a-single-table-design-with-amazon-dynamodb/
 
 ### AppSync + DynamoDB Design
 - https://www.alexdebrie.com/posts/dynamodb-single-table/#graphql--single-table-design
