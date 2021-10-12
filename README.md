@@ -12,3 +12,7 @@ BE for TODOs app
 ### AppSync + DynamoDB Design
 - https://www.alexdebrie.com/posts/dynamodb-single-table/#graphql--single-table-design
 - https://benoitboure.com/how-to-use-dynamodb-single-table-design-with-appsync
+
+### GraphQL
+- https://engineering.zalando.com/posts/2021/04/modeling-errors-in-graphql.html
+- https://blog.logrocket.com/handling-graphql-errors-like-a-champ-with-unions-and-interfaces/
