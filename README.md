@@ -16,3 +16,6 @@ BE for TODOs app
 ### GraphQL
 - https://engineering.zalando.com/posts/2021/04/modeling-errors-in-graphql.html
 - https://blog.logrocket.com/handling-graphql-errors-like-a-champ-with-unions-and-interfaces/
+
+### AppSync + Auth
+- https://github.com/dabit3/build-an-authenticated-api-with-cdk
