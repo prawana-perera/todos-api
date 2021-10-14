@@ -19,3 +19,4 @@ BE for TODOs app
 
 ### AppSync + Auth
 - https://github.com/dabit3/build-an-authenticated-api-with-cdk
+- https://github.com/deekob/appsync_reference
