@@ -1,0 +1,41 @@
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+type Todo {
+    id: ID!
+    title: String!
+    priority: Priority!
+    description: String
+    isComplete: boolean
+    createdAt: AWSDateTime!
+    modifiedAt: AWSDateTime
+    owner: ID!
+}
+
+type CreateTodoInput {
+    title: String!
+    priority: Priority!
+    description: String
+}
+
+type UpdateTodoInput {
+    id: ID!
+    title: String!
+    priority: Priority!
+    description: String
+    isComplete: boolean
+}
+
+type Query {
+  getById(id: ID!): Todo
+  getAll: [Todo]
+}
+
+type Mutation {
+  create(todo: CreateTodoInput!): Todo
+  update(note: UpdateTodoInput!): Todo
+  delete(id: ID!): ID
+}
