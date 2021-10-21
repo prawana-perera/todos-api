@@ -1,32 +1,7 @@
-enum Priority {
-  LOW
-  MEDIUM
-  HIGH
-}
-
-type Todo {
-    id: ID!
-    title: String!
-    priority: Priority!
-    description: String
-    isComplete: boolean
-    createdAt: AWSDateTime!
-    modifiedAt: AWSDateTime
-    owner: ID!
-}
-
-type CreateTodoInput {
-    title: String!
-    priority: Priority!
-    description: String
-}
-
-type UpdateTodoInput {
-    id: ID!
-    title: String!
-    priority: Priority!
-    description: String
-    isComplete: boolean
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
 }
 
 type Query {
@@ -35,7 +10,55 @@ type Query {
 }
 
 type Mutation {
-  create(todo: CreateTodoInput!): Todo
-  update(note: UpdateTodoInput!): Todo
-  delete(id: ID!): ID
+  create(input: CreateTodoInput!): Todo
+  update(input: UpdateTodoInput!): Todo
+  delete(id: ID!): Todo
+}
+
+type Subscription {
+  newTodo(owner: String!): Todo
+  @aws_subscribe(mutations: ["create"])
+
+  updatedTodo(owner: String!): Todo
+  @aws_subscribe(mutations: ["update"])
+
+  deletedTodo(owner: String!): Todo
+  @aws_subscribe(mutations: ["delete"])
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum Status {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+type Todo {
+  id: ID!
+  title: String!
+  priority: Priority!
+  description: String
+  status: Status!
+  createdAt: AWSDateTime!
+  modifiedAt: AWSDateTime
+  owner: String!
+}
+
+input CreateTodoInput {
+  title: String!
+  priority: Priority!
+  description: String
+}
+
+input UpdateTodoInput {
+  id: ID!
+  title: String
+  priority: Priority
+  description: String
+  status: Status
 }
