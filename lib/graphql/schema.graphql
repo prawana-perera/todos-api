@@ -16,14 +16,16 @@ type Mutation {
 }
 
 type Subscription {
-  newTodo(owner: String!): Todo
-  @aws_subscribe(mutations: ["create"])
+  newTodo(owner: String!): Todo @aws_subscribe(mutations: ["create"])
+  updatedTodo(owner: String!): Todo @aws_subscribe(mutations: ["update"])
+  deletedTodo(owner: String!): Todo @aws_subscribe(mutations: ["delete"])
+}
 
-  updatedTodo(owner: String!): Todo
-  @aws_subscribe(mutations: ["update"])
-
-  deletedTodo(owner: String!): Todo
-  @aws_subscribe(mutations: ["delete"])
+type User {
+  id: ID!
+  email: AWSEmail!
+  firstName: String
+  lastName: String
 }
 
 enum Priority {
