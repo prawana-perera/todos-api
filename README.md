@@ -21,6 +21,8 @@ Learning objectives:
 - https://www.serverlesslife.com/DynamoDB_Design_Patterns_for_Single_Table_Design.html
 - https://www.profit4cloud.nl/blog/designing-for-amazon-dynamodb/
 - Use KSUID instead of GUUID - https://www.npmjs.com/package/ksuid
+- https://www.alexdebrie.com/posts/dynamodb-condition-expressions/
+- https://www.alexdebrie.com/posts/dynamodb-transactions/
 
 ### AppSync + DynamoDB Design
 

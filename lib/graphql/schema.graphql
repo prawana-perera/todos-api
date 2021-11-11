@@ -6,7 +6,7 @@ schema {
 
 type Query {
   getById(id: ID!): Todo
-  getAll: [Todo]
+  getAll(nextToken: String, limit: Int = 10): GetAllResponse
 }
 
 type Mutation {
@@ -38,6 +38,11 @@ enum Status {
   PENDING
   IN_PROGRESS
   COMPLETED
+}
+
+type GetAllResponse {
+  items: [Todo]
+  nextToken: String
 }
 
 type Todo {
