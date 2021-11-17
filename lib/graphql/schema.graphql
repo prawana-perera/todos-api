@@ -1,3 +1,5 @@
+# https://engineering.zalando.com/posts/2021/04/modeling-errors-in-graphql.html
+# http://spec.graphql.org/June2018/#sec-Errors
 schema {
   query: Query
   mutation: Mutation
