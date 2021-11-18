@@ -18,9 +18,9 @@ type Mutation {
 }
 
 type Subscription {
-  newTodo(owner: String!): Todo @aws_subscribe(mutations: ["create"])
-  updatedTodo(owner: String!): Todo @aws_subscribe(mutations: ["update"])
-  deletedTodo(owner: String!): Todo @aws_subscribe(mutations: ["delete"])
+  onTodoAdded(owner: String!): Todo @aws_subscribe(mutations: ["create"])
+  onTodoUpdated(owner: String!): Todo @aws_subscribe(mutations: ["update"])
+  onTodoDeleted(owner: String!): Todo @aws_subscribe(mutations: ["delete"])
 }
 
 type User {

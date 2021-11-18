@@ -66,7 +66,20 @@ export class TodosApiStack extends cdk.Stack {
       fieldName: 'delete',
     });
 
-    // TODO: check subscription resolvers
+    lambdaDs.createResolver({
+      typeName: 'Subscription',
+      fieldName: 'onTodoAdded',
+    });
+
+    lambdaDs.createResolver({
+      typeName: 'Subscription',
+      fieldName: 'onTodoUpdated',
+    });
+
+    lambdaDs.createResolver({
+      typeName: 'Subscription',
+      fieldName: 'onTodoDeleted',
+    });
 
     const todosTable = new ddb.Table(this, 'TodosTable', {
       tableName: 'TodosTable',
