@@ -43,3 +43,10 @@ Learning objectives:
 
 - https://event-driven-architecture.workshop.aws/2-event-bridge.html
 - https://serverlessland.com/
+
+### Local development and testing
+
+- https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-cdk-getting-started.html
+- https://medium.com/contino-engineering/increase-your-aws-cdk-lambda-development-speed-by-testing-locally-with-aws-sam-48a70987515c
+  - Need docker (no need docker desktop) - https://dhwaneetbhatt.com/blog/run-docker-without-docker-desktop-on-macos
+  - Fix cred store error - https://basiliocode.medium.com/error-docker-credential-desktop-not-installed-or-not-available-in-path-1e969f7bdfbc

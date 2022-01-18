@@ -11,8 +11,9 @@ export class TodosApiStack extends cdk.Stack {
     super(scope, id, props);
 
     const userPool = new cognito.UserPool(this, 'todos-api-userpool', {
-      selfSignUpEnabled: false,
+      selfSignUpEnabled: true,
       accountRecovery: cognito.AccountRecovery.NONE,
+      removalPolicy: RemovalPolicy.DESTROY,
       userVerification: {
         emailStyle: cognito.VerificationEmailStyle.CODE,
       },
@@ -24,10 +25,18 @@ export class TodosApiStack extends cdk.Stack {
           required: true,
           mutable: false,
         },
+        fullname: {
+          required: true,
+          mutable: false,
+        },
+        phoneNumber: {
+          required: false,
+          mutable: true,
+        },
       },
     });
 
-    new cognito.UserPoolClient(this, 'todos-app-client', {
+    const appClient = new cognito.UserPoolClient(this, 'todos-app-client', {
       userPool,
       userPoolClientName: 'todos-app-client',
     });
@@ -146,14 +155,23 @@ export class TodosApiStack extends cdk.Stack {
     // Create an environment variable that we will use in the function code
     todosApiLambda.addEnvironment('TODOS_TABLE', todosTable.tableName);
 
+    // Prints out the stack region to the terminal
+    new cdk.CfnOutput(this, 'StackRegion', {
+      value: this.region,
+    });
+
     // Prints out the AppSync GraphQL endpoint to the terminal
     new cdk.CfnOutput(this, 'GraphQLApiUrl', {
       value: api.graphqlUrl,
     });
 
     // Prints out the stack region to the terminal
-    new cdk.CfnOutput(this, 'StackRegion', {
-      value: this.region,
+    new cdk.CfnOutput(this, 'CognitoUserPoolId', {
+      value: userPool.userPoolId,
+    });
+
+    new cdk.CfnOutput(this, 'CognitoUserAppClientId', {
+      value: appClient.userPoolClientId,
     });
   }
 }
